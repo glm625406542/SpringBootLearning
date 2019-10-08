@@ -1,41 +1,42 @@
-
-
 sharding:
   jdbc:
     dataSource:
       names: db-test0,db-test1,db-test2
-      # ÅäÖÃÖ÷¿â
+       # é…ç½®ä¸»åº“
       db-test0: #org.apache.tomcat.jdbc.pool.DataSource
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://{master-host}:3306/cool?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        url: jdbc:mysql://118.178.93.153:3306/ddbmaster?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
         username: root
-        password:
-        #×î´óÁ¬½ÓÊı
+        password: root123456
+        #ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         maxPoolSize: 20
-      db-test1: # ÅäÖÃµÚÒ»¸ö´Ó¿â
+      db-test1: # ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½Ó¿ï¿½
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://{slave1-host}:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        url: jdbc:mysql://118.178.93.153:3306/ddbmaster1?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
         username: root
-        password:
+        password: root123456
         maxPoolSize: 20
-      db-test2: # ÅäÖÃµÚ¶ş¸ö´Ó¿â
+      db-test2: # ï¿½ï¿½ï¿½ÃµÚ¶ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://{slave2-host}:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        url: jdbc:mysql://118.178.93.153:3306/ddbmaster2?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
         username: root
-        password:
+        password: root123456
         maxPoolSize: 20
     config:
-      masterslave: # ÅäÖÃ¶ÁĞ´·ÖÀë
-        load-balance-algorithm-type: round_robin # ÅäÖÃ´Ó¿âÑ¡Ôñ²ßÂÔ£¬Ìá¹©ÂÖÑ¯ÓëËæ»ú£¬ÕâÀïÑ¡ÔñÓÃÂÖÑ¯//random Ëæ»ú //round_robin ÂÖÑ¯
+      masterslave: # ï¿½ï¿½ï¿½Ã¶ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½
+        load-balance-algorithm-type: round_robin # ï¿½ï¿½ï¿½Ã´Ó¿ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½á¹©ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯//random ï¿½ï¿½ï¿½ //round_robin ï¿½ï¿½Ñ¯
         name: db1s2
         master-data-source-name: db-test0
         slave-data-source-names: db-test1,db-test2
     props:
-      sql: # ¿ªÆôSQLÏÔÊ¾£¬Ä¬ÈÏÖµ: false£¬×¢Òâ£º½öÅäÖÃ¶ÁĞ´·ÖÀëÊ±²»»á´òÓ¡ÈÕÖ¾£¡£¡£¡
+      sql: # ï¿½ï¿½ï¿½ï¿½SQLï¿½ï¿½Ê¾ï¿½ï¿½Ä¬ï¿½ï¿½Öµ: falseï¿½ï¿½×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         show: true
 
 server.port: 8085
 mybatis.config-location: classpath:META-INF/mybatis-config.xml
+
+logging:
+       config: classpath:logback-spring.xml

@@ -13,12 +13,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping("/sharding/users")
     public Object list() {
         return userService.list();
     }
 
-    @GetMapping("/add")
+    @GetMapping("/sharding/add")
     public Object add(@RequestParam Integer id,@RequestParam String username,@RequestParam String  password) {
         User user = new User();
         user.setId(id);
