@@ -6,23 +6,20 @@ sharding:
       db-test0: #org.apache.tomcat.jdbc.pool.DataSource
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://{master-host}:3306/cool?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        url: jdbc:mysql://xxxxx:3306/ddbmaster0?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
         username: root
-        password: root123
         maxPoolSize: 20
       db-test1:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://{slave1-host}:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        url: jdbc:mysql://xxxxx:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
         username: root
-        password: root123
         maxPoolSize: 20
       db-test2:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://{slave2-host}:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        url: jdbc:mysql://xxxxx:3306/cool?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
         username: root
-        password: root123
         maxPoolSize: 20
     props:
       sql:
