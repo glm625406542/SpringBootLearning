@@ -21,7 +21,7 @@
             </encoder>
         </appender>
 
-        <logger name="com.forezp" level="debug" additivity="true">
+        <logger name="com.forezp" level="debug" additivity="false">
             <appender-ref ref="STDOUT"/>
         </logger>
 
